@@ -19,26 +19,27 @@ body {
 }
 
 /* Navbar Styles */
+/* General Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
     background-color: #fff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    position: fixed; /* Optional: Keeps navbar fixed on scroll */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    border-radius: 8px; /* Optional: Adds a slightly rounded edge */
+    border-radius: 8px;
 }
 
 .logo img {
-    height: 70px;
-    
+    height: 60px;
 }
 
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -48,7 +49,6 @@ body {
     justify-content: space-between;
 }
 
-
 .nav-links li {
     margin: 0 15px;
 }
@@ -57,7 +57,6 @@ body {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    
 }
 
 .login-btn {
@@ -68,13 +67,46 @@ body {
     border-radius: 20px;
     cursor: pointer;
     width: 150px;
-
 }
 
+/* === SVG Hamburger Menu Icon === */
+.menu-icon {
+    display: none; /* Hide on large screens */
+    cursor: pointer;
+}
+
+/* === Responsive Design for Small Screens === */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Show only on small screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide initially */
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+/* === Default Styles for Large Screens === */
 .home-wrapper {
-    padding-top: 140px; /* Adds space above the image to prevent overlap with navbar */
-    padding-bottom: 50px; /* Adds space below the image */
-    background-color: #fff; /* White background */
+    padding-top: 140px;
+    padding-bottom: 50px;
+    background-color: #fff;
 }
 
 .home {
@@ -82,7 +114,8 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 80vh;
+    min-height: 80vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -90,99 +123,199 @@ body {
     position: relative;
     border-radius: 20px;
     padding: 40px;
-
-    width: 100%; /* Ensures full width */
-    margin: 0 auto; /* Centers it horizontally */
+    margin: 0 auto;
 }
 
-.home-content{
+.home-content {
     display: flex;
     flex-direction: column;
-    align-items: left;
-    justify-content: left;
 }
 
-.home-heading{
+.home-heading {
     font-size: 58px;
-    color: white; /* Main text color */
-  text-shadow: 
-    -2px -2px 0 black, 
-     2px -2px 0 black, 
-    -2px  2px 0 black, 
-     2px  2px 0 black;
-
-
+    color: white;
+    text-shadow: 
+        -2px -2px 0 black, 
+         2px -2px 0 black, 
+        -2px  2px 0 black, 
+         2px  2px 0 black;
 }
-
- 
 
 .home-info-content {
     display: flex;
     flex-direction: row;
-    gap: 1rem; /* Smaller gap between buttons */
-    margin: 20px;
+    gap: 1rem;
+    margin: 20px 0;
 }
 
 .home-info {
-    background-color: #2E2E2E; /* Dark background */
-    color: white; /* White text */
-    padding: 0.5rem 1rem; /* Reduced padding */
-    border-radius: 6px; /* Slightly smaller rounded corners */
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4); /* Subtle shadow */
-    text-align: center; /* Center text */
-    width: 250px; /* Set a reasonable width */
+    background-color: #2E2E2E;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 250px;
     font-size: 24px;
 }
 
 .home-btn {
-    background-color: #EB008B; /* Dark background */
-    color: white; /* White text */
-    padding: 0.75rem 1.5rem; /* Balanced padding */
-    border: none; /* Remove default border */
-    border-radius: 50px; /* Rounded corners */
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4); /* Subtle shadow */
-    font-size: 1rem; /* Clean font size */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-    width: 250px;
-    margin-top: 1rem; /* Adds space above the button */
+    background-color: #EB008B;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+    font-size: 1rem;
+    cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 250px;
+    margin-top: 1rem;
 }
 
 .home-btn:hover {
-    background-color: #EB008B; /* Slightly lighter dark gray for hover */
-    box-shadow: 0px 4px 8px rgba(154, 142, 142, 0.5); /* Stronger shadow on hover */
+    background-color: #C00070;
+    box-shadow: 0px 4px 8px rgba(154, 142, 142, 0.5);
 }
 
-
 .Home-card {
-    background-color: rgba(46, 46, 46, 0.6); /* Transparent dark background */
-    color: #FFCD4E; /* White text */
-    padding: 2rem; /* Padding inside the card */
-    border-radius: 12px; /* Smooth rounded corners */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-    text-align: center; /* Center content */
+    background-color: rgba(46, 46, 46, 0.6);
+    color: #FFCD4E;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
     width: 400px;
     height: 500px;
-    font-family: 'DM Serif Display'; /* Font applied */
+    font-family: 'DM Serif Display';
     font-size: 30px;
 }
 
-.Home-card h1, .Home-card p {
-    font-family: 'DM Serif Display'; /* Ensure it applies to all text inside */
+.Home-card h1 {
     font-weight: 400;
     font-style: oblique;
-    
 }
-
 
 .Home-card h1 span {
     font-weight: 900;
-    color: #FFCD4E; /* Gold color for 'Top' */
+    color: #FFCD4E;
     font-size: 90px;
     margin: 0;
 }
 
+/* === 📌 Responsive Styling === */
+
+/* ✅ Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+    .home {
+        flex-direction: column;
+        height: 100vh; /* Full height */
+        width: 100%; /* Full width */
+        text-align: center;
+        padding: 50px 20px;
+        justify-content: center;
+        background-size: cover; /* Ensure the image covers the entire screen */
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 0; /* Remove border-radius for full width */
+    }
+
+    .home-heading {
+        font-size: 44px;
+    }
+
+    .home-info-content {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .home-info {
+        width: 200px;
+        font-size: 20px;
+    }
+
+    .home-btn {
+        width: 220px;
+        font-size: 1rem;
+        margin-bottom: 9px;
+    }
+
+    .Home-card {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        font-size: 28px;
+    }
+
+    .Home-card h1 span {
+        font-size: 80px;
+    }
+}
+
+/* ✅ Small Screens (Mobile Phones) */
+@media (max-width: 768px) {
+    .home-wrapper {
+        padding-top: 0px; /* No extra space */
+    }
+
+    .home {
+        flex-direction: column;
+        height: 100vh; /* Full screen height */
+        width: 100%; /* Full screen width */
+        text-align: center;
+        padding: 20px;
+        justify-content: center;
+        background-size: cover; /* Make sure the background fills the entire screen */
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 0; /* Remove border-radius for full width */
+    }
+
+    .home-content {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home-heading {
+        font-size: 32px;
+        text-shadow: 
+            -1px -1px 0 black, 
+             1px -1px 0 black, 
+            -1px  1px 0 black, 
+             1px  1px 0 black;
+    }
+
+    .home-info-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .home-info {
+        width: 160px;
+        font-size: 16px;
+        padding: 0.5rem;
+    }
+
+    .home-btn {
+        width: 180px;
+        font-size: 0.9rem;
+        padding: 0.6rem;
+        margin-bottom: 9px;
+    }
+
+    .Home-card {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    .Home-card h1 span {
+        font-size: 50px;
+    }
+}
 
 
 
